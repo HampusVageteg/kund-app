@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: Kund-API (DIGG)
+  description: API för att lägga till och se kunder samt kontrollera systemhälsa.
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      summary: Kontrollera tjänstens status
+      responses:
+        "200":
+          description: Tjänsten mår bra
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: UP
+                  timestamp:
+                    type: string
+                    example: "2026-06-03T20:40:00.000Z"
+
+  /digg/api/customers:
+    get:
+      summary: Hämta en paginerad lista med kunder
+      parameters:
+        - name: page
+          in: query
+          description: Sidnummer
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          description: Antal kunder per sida
+          schema:
+            type: integer
+            default: 5
+      responses:
+        "200":
+          description: Lyckad hämtning
+
+    post:
+      summary: Skapa en ny kund
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - fullName
+                - email
+                - phone
+                - adress
+              properties:
+                fullName:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                adress:
+                  type: string
+      responses:
+        "201":
+          description: Kunden lyckades skapas

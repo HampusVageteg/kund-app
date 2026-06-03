@@ -1,0 +1,11 @@
+{
+  "name": "kund-app",
+  "version": "1.0.0",
+  "scripts": {
+    "install-all": "npm install --prefix klient && npm install --prefix server",
+    "dev": "concurrently \"npm run dev --prefix klient\" \"node server/server.js\" \"npm run test --prefix server\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
