@@ -4,11 +4,11 @@ Enkel applikation med Vue 3 Typescript och Express Node.js.
 
 ## Funktioner
 
-Hämtning av kunder som visas i en tabell där paginering är möjlig.
-Lägga till kunder med hjälp av enkelt formulär med enkel validering.
-Openapi SwaggerUI med möjlighet att öppna Swagger-gränssnittet för att tydligt se endpoints.
-Hälso-check för att se status på applikationen.
-Använder Docker med flerstegs-bygge som paketerar både klient/frontend och server/backend i en enda container.
+* **Paginering & Tabell:** Hämtning av kunder som visas i en tabell där paginering är möjlig.
+* **Kundformulär:** Lägga till kunder med hjälp av enkelt formulär med enkel validering.
+* **OpenAPI / Swagger UI:** Openapi SwaggerUI med möjlighet att öppna Swagger-gränssnittet för att tydligt se endpoints.
+* **Hälsokontroll (Health Check):** Hälso-check för att se status på applikationen.
+* **Docker-redo:** Använder Docker med flerstegs-bygge som paketerar både klient/frontend och server/backend i en enda container.
 
 ## För installation och utveckling
 
