@@ -1,15 +1,10 @@
-// const express = require("express");
-// const path = require("path");
-// const { faker } = require("@faker-js/faker");
-// const cors = require("cors");
-// const app = express();
 import express from "express";
 import path from "path";
 import cors from "cors";
 import { faker } from "@faker-js/faker";
 import { fileURLToPath } from "url";
 
-// Importera Swagger och YAML-läsaren
+// Importera Swagger och YAML-läsare för openapi
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 
@@ -25,7 +20,7 @@ app.use(express.json());
 const swaggerDocument = YAML.load(path.join(__dirname, "openapi.yaml"));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// HEALTH CHECK
+// Hälso-check
 app.get("/health", (req, res) => {
   res.json({
     status: "UP",
@@ -63,7 +58,7 @@ app.get("/digg/api/customers", (req, res) => {
 app.post("/digg/api/customers", (req, res) => {
   const { fullName, email, phone, adress } = req.body;
 
-  // Skapa den nya kunden och ge den ett unikt ID baserat på arrayens längd
+  // Skapa den nya kunden och ge den ett id baserat på arrayens längd
   const newCustomer = {
     id: allCustomers.length + 1,
     fullName,
@@ -76,17 +71,16 @@ app.post("/digg/api/customers", (req, res) => {
     return res.status(400).json({ error: "Alla fält är obligatoriska" });
   }
 
-  // Lägg till kunden i vår lista i serverns minne
+  // Lägg till kunden i listan i serverns minne
   allCustomers.push(newCustomer);
 
-  // Svara med den skapade kunden och statuskod 211 (Created)
   res.status(201).json(newCustomer);
 });
 
-// Säg till Express att servera de färdigbyggda Vue-filerna från en mapp som heter 'dist'
+// Säg till Express att serva de färdigbyggda Vue-filerna från mappen 'dist'
 app.use(express.static(path.join(__dirname, "dist")));
 
-// Om användaren går till något annat än dina API-routes, skicka Vue's index.html
+// Om användaren går till något annat än mina routes (obefintliga i 1.0), skicka Vue's index.html
 app.use((req, res, next) => {
   if (
     req.path.startsWith("/digg/api") ||

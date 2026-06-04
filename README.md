@@ -1,6 +1,6 @@
-# Kund-app (DIGG-prov)
+# Kund-app
 
-Enkel applikation med Vue 3 Typescript och Express Node.js.
+Enkel applikation med Vue 3 Javascript och lite smakprov på Typescript, samt Express Node.js.
 
 ## Funktioner
 
@@ -27,7 +27,7 @@ Ställ dig i rotkatalogen (kund-app) och kör följande kommandon för att förs
    "docker compose up --build"
    Så startas en container upp som håller hela applikationen. Du når då webbsidan på <http://localhost:3000>
 
----
+### URLer
 
 Gå till <http://localhost:3000/health> — För att se hälsostatus på applikationen
 
