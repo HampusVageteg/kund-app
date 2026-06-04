@@ -27,6 +27,8 @@ Ställ dig i rotkatalogen (kund-app) och kör följande kommandon för att förs
    "docker compose up --build"
    Så startas en container upp som håller hela applikationen. Du når då webbsidan på <http://localhost:3000>
 
+---
+
 ### URLer
 
 Gå till <http://localhost:3000/health> — För att se hälsostatus på applikationen
